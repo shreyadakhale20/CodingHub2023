@@ -1,0 +1,139 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="MeeshoProject.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <style>
+        .meeshoHead {
+            margin-left: 3em;
+            font-size: 2em;
+            color: purple;
+            font-weight: bold;
+        }
+
+      
+        .dropdown:hover > .dropdown-menu {
+            display: block;
+            background-color: unset;
+            border: 2px;
+        }
+
+        .dropdown > .dropdown-toggle:active {
+            /*Without this, clicking will make it sticky*/
+            pointer-events: none;
+            background-color: unset;
+            border: hidden;
+        }
+
+        .btn btn-primary dropdown-toggle {
+            background-color: unset;
+            border: hidden;
+        }
+        #title{
+            color:rgb(159, 32, 137);
+            font-weight: bolder;
+        }
+        .dropdown-item{
+            background-color:white;
+       
+        }
+        #Button {
+  color: black;
+  font-size: 22px;
+  font-family: revert;
+}
+        .bg-dark {
+  --bs-bg-opacity: 1;
+  border: 2px solid lightgray;
+  background-color: white;
+}
+        .navbar.navbar-expand-sm.navbar-toggleable-sm.navbar-dark {
+  border: 2px solid lightgray;
+}
+
+    </style>
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <div class="meeshoHead">Meesho</div>
+       
+        <%---------------------------------------------------------Dropdown Start-----------------------------------------%>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark">
+            <div class="container">
+                <%--<a class="navbar-brand" runat="server" style="color:black;" href="~/">Meesho</a>--%>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+
+
+                    <div class="dropdown">
+                        <button
+                            class="btn btn-primary dropdown-toggle" style="background-color: unset; border: hidden;"
+                            type="button"
+                            id="Button"
+                            data-mdb-toggle="dropdown"
+                            aria-expanded="false">
+                            Women Wear
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="#" id="title">All Women Ethnic</a></li>
+                            <li><a class="dropdown-item" href="#">Sarees</a></li>
+                            <li><a class="dropdown-item" href="#">Kurtis</a></li>
+                            <li><a class="dropdown-item" href="#">Kurta Sets</a></li>
+                            <li><a class="dropdown-item" href="#">Suits & Dress Material</a></li>
+                            <li><a class="dropdown-item" href="#">Other Ethnic</a></li>
+                        </ul>
+                    </div>
+
+                   
+                </div>
+            </div>
+        </nav>
+
+        <%----------------------------------------- Dropdown End ---------------------------------------%>
+
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            </footer>
+        </div>
+    </form>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+</body>
+</html>
